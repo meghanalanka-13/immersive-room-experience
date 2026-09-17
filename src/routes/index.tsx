@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, Check, Leaf, Menu, ShieldCheck, Sparkles, Wrench, X } from "lucide-react";
 import { useEffect, useState, type FormEvent } from "react";
 
-import roomImage from "@/assets/corepairs-room-uniforms.jpg";
+import roomImage from "@/assets/co-repairs-hero.png.asset.json";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -78,9 +78,8 @@ function Index() {
 
       <section id="story" className="story" data-stage={stage}>
         <div className="story-sticky">
-          <img src={roomImage} alt="Co-Repairs service center with four uniformed team members" className="room-image" width={1920} height={1088} />
+          <img src={roomImage.url} alt="Co-Repairs service center with four uniformed team members" className="room-image" width={1536} height={919} />
           <div className="room-shade" />
-          <div className="room-brand" aria-hidden="true">Co-Repairs.</div>
           <div className="story-copy" aria-live="polite">
             {story.map((item, index) => (
               <article key={item.eyebrow} className={index === stage ? "story-beat is-active" : "story-beat"} aria-hidden={index !== stage}>
