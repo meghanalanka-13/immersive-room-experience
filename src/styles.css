@@ -229,7 +229,7 @@ footer > div { display: flex; flex-direction: column; align-items: flex-start; g
   .site-header { height: 66px; }.header-cta { display: none; }.menu-toggle { display: inline-flex; }
   .nav-links { position: fixed; inset: 0; padding: 7rem 1.5rem 2rem; background: var(--primary); flex-direction: column; align-items: flex-start; font-size: 1.6rem; transform: translateX(100%); transition: transform .35s ease; }.nav-links.is-open { transform: translateX(0); }
   .room-image { inset: 0; width: 100%; height: 100%; object-position: 48% center; }
-  .room-brand { top: 24%; }.story-beat { width: calc(100% - 2.5rem); }.story-beat h1 { font-size: clamp(2.6rem, 13vw, 4.2rem); }
+  .room-brand { display: none; }.story-beat { width: calc(100% - 2.5rem); }.story-beat h1 { font-size: clamp(2.6rem, 13vw, 4.2rem); }
   .story-beat > span { max-width: 90%; font-size: .95rem; }.story-actions { flex-direction: column; align-items: center; }.story-progress { right: .8rem; }.scroll-cue { bottom: 1.2rem; }
   .intro-grid, .book-section { grid-template-columns: 1fr; }.intro-section { min-height: auto; }.feature-grid { grid-template-columns: 1fr; }.feature-item { min-height: 280px; }
   .sustainability-copy { margin-left: 0; }.impact-row { grid-template-columns: 1fr; }.impact-row div { padding-bottom: 1.5rem; border-bottom: 1px solid oklch(1 0 0 / .15); }
