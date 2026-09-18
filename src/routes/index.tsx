@@ -20,10 +20,17 @@ export const Route = createFileRoute("/")({
 });
 
 const story = [
-  { eyebrow: "Welcome to Co-Repairs", title: "Authorized service centers, under one roof.", text: "A shared service ecosystem built around trust, visibility, and better care." },
-  { eyebrow: "Our goal", title: "Repairs should feel this simple.", text: "We bring verified brand service teams into one modern, professionally managed space." },
-  { eyebrow: "Our mission", title: "A better standard after the sale.", text: "Modern infrastructure, trained people, and transparent processes—working together." },
-  { eyebrow: "Our vision", title: "A trusted service hub in every city.", text: "Beginning with one flagship room. Growing into a connected network across India." },
+  { eyebrow: null, title: "Authorized Service Centers, Under One Roof." },
+  { eyebrow: "Our Goal", title: "A single, well-designed hub for every trusted brand." },
+  { eyebrow: "Our Mission", title: "Consistent, standardized, trustworthy service." },
+  { eyebrow: "Our Vision", title: "One flagship room. A PAN-India network next." },
+];
+
+const storyDescriptions = [
+  "Co-Repairs. is a shared authorized service hub ecosystem designed to improve post-sales service for appliance and electronics brands. We bring multiple authorized service centers together under one roof to make repairs faster, more reliable, and more accessible.",
+  "Reducing friction for customers and cost for brands, with accessible, reliable, and transparent repairs under one shared roof.",
+  "Modern infrastructure and trained manpower, so every brand's service experience meets the same high bar.",
+  "Expanding city by city, making repair the first choice, not the last resort.",
 ];
 
 const ecosystem = [
@@ -76,20 +83,30 @@ function Index() {
         </div>
       </header>
 
-      <section id="story" className="story" data-stage={stage}>
+      <section id="story" className="story">
         <div className="story-sticky">
           <img src={roomImage.url} alt="Co-Repairs service center with four uniformed team members" className="room-image" width={1536} height={919} />
-          <div className="room-shade" />
-          <div className="story-copy" aria-live="polite">
-            {story.map((item, index) => (
-              <article key={item.eyebrow} className={index === stage ? "story-beat is-active" : "story-beat"} aria-hidden={index !== stage}>
-                <p>{item.eyebrow}</p>
-                <h1>{item.title}</h1>
-                <span>{item.text}</span>
-                {index === 0 && <div className="story-actions"><Button asChild size="lg"><a href="#book">Book a service <ArrowRight /></a></Button><Button asChild size="lg" variant="outline"><a href="#ecosystem">Explore ecosystem</a></Button></div>}
-              </article>
-            ))}
+
+          <div className="story-copy">
+            <div className="headline-slot">
+              {story.map((item, index) => (
+                <article key={index} className={index === stage ? "story-beat is-active" : "story-beat"} aria-hidden={index !== stage}>
+                  {item.eyebrow && <p>{item.eyebrow}</p>}
+                  <h1>{item.title}</h1>
+                </article>
+              ))}
+            </div>
+
+            <div className="desc-panel" aria-live="polite"><span>{storyDescriptions[stage]}</span></div>
+
+            {stage === 0 && (
+              <div className="story-actions">
+                <Button asChild size="lg"><a href="#book">Book a Service <ArrowRight /></a></Button>
+                <Button asChild size="lg" variant="outline"><a href="#ecosystem">Partner Ecosystem</a></Button>
+              </div>
+            )}
           </div>
+
           <div className="story-progress" aria-hidden="true">{story.map((_, index) => <span key={index} className={index === stage ? "is-active" : ""} />)}</div>
           <a href="#ecosystem" className="scroll-cue"><span>Scroll to enter</span><ArrowDown /></a>
         </div>
